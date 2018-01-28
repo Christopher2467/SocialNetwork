@@ -5,9 +5,9 @@ require_once('../models/user.php');
 
 $user = new USER();
 
-$username = $_POST['username'];
-$email = $_POST['email'];
-$password = $_POST['password'];
+$username = strip_tags($_POST['username']);
+$email = strip_tags($_POST['email']);
+$password = strip_tags($_POST['password']);
 	
 if($user->register($username, $email, $password)){	
 	$user->redirect('../index.php');
