@@ -1,3 +1,9 @@
+<?php
+
+require("../php/login.php");
+
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -10,7 +16,7 @@
 
 <body>
 
-	<form action="../php/login.php" method="post">
+	<form method="post">
 
 		<label for="username">Enter your username</label>
 		<input type="text" name="username" id="username">
@@ -21,7 +27,7 @@
 		<label for="password">Enter your password</label>
 		<input type="password" name="password" id="password">
 
-		<input type="submit" value="Submit">
+		<input type="submit" name="btn-login" value="Submit">
 
 </body>
 
