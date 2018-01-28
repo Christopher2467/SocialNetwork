@@ -1,10 +1,16 @@
 <?php 
 
-	$new_user = array(
-		'username' => $_POST['username'],
-		'email' => $_POST['email'],
-		'password' => $_POST['password']
-	);
+session_start();
+require_once('../models/user.php');
 
-	echo $new_user['username'];
+$user = new USER();
+
+$username = $_POST['username'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+	
+if($user->register($username, $email, $password)){	
+	$user->redirect('../index.php');
+}
+
 ?> 
