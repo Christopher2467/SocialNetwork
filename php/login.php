@@ -20,8 +20,8 @@ if(isset($_POST['btn-login'])){
 		$login->redirect('../views/home.php');
 	}
 	else{
+		//wrong details
 		$login->redirect('../views/login.php');
-		$error = "Wrong Details !";
 	}	
 }
 ?> 

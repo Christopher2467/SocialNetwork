@@ -2,8 +2,7 @@
 
 require_once('../data/config.php');
 
-class USER
-{	
+class USER{	
 
 	private $conn;
 	
