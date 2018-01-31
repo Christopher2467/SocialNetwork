@@ -15,15 +15,15 @@ class POST{
     public function createpost($posterid, $postcontent)	{
 		try{
 			
-			$stmt = $this->conn->prepare("INSERT INTO posts(poster_id, post_content) 
+			$sql = $this->conn->prepare("INSERT INTO posts(poster_id, post_content) 
 		                                               VALUES(:pid, :pcontent)");
 												  
-			$stmt->bindparam(":pid", $posterid);
-			$stmt->bindparam(":pcontent", $postcontent);
+			$sql->bindparam(":pid", $posterid);
+			$sql->bindparam(":pcontent", $postcontent);
 				
-			$stmt->execute();	
+			$sql->execute();	
 			
-			return $stmt;	
+			return $sql;	
 		}
 		catch(PDOException $e){
 			echo $e->getMessage();
@@ -32,8 +32,27 @@ class POST{
 	
 	public function deletepost($postid)	{
 		try{
+			$sql = $this->conn->prepare("DELETE FROM posts WHERE id = :postid");
+			$sql->bindparam(":postid", $postid);
+			$sql->execute();	
 			
+			return $sql;
+		}
+		catch(PDOException $e){
+			echo $e->getMessage();
+		}				
+	}
+
+	public function getuserposts($posterid)	{
+		try{
+
+			$sql = $this->conn->prepare("SELECT * FROM posts WHERE poster_id=:posterid ORDER BY post_date DESC");
+			$sql->execute(array(":posterid"=>$posterid));
 			
+			$user_posts_req = $sql->fetchALL(PDO::FETCH_ASSOC);
+			
+			return $user_posts_req;
+
 		}
 		catch(PDOException $e){
 			echo $e->getMessage();
