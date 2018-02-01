@@ -18,6 +18,8 @@ require('../php/user.php');
 
 <body>
 
+	<p id = "username"></p>
+
 	<table id = "posts">
   	
 	</table>
