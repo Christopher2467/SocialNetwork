@@ -12,6 +12,10 @@ class POST{
 		$this->conn = $db;
     }
 
+    public function redirect($url){
+		header("Location: $url");
+	}
+	
     public function createpost($posterid, $postcontent)	{
 		try{
 			
@@ -52,6 +56,19 @@ class POST{
 			$user_posts_req = $sql->fetchALL(PDO::FETCH_ASSOC);
 			
 			return $user_posts_req;
+
+		}
+		catch(PDOException $e){
+			echo $e->getMessage();
+		}				
+	}
+
+	public function get10newestposts($limit){
+		try{
+			$sql = $this->conn->prepare("SELECT * FROM posts ORDER BY post_date DESC LIMIT 10");
+			$sql->execute();
+			$newest_posts_req = $sql->fetchALL(PDO::FETCH_ASSOC);
+			return $newest_posts_req;
 
 		}
 		catch(PDOException $e){

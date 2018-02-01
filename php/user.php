@@ -1,8 +1,6 @@
 <?php
 
 require_once('../models/user.php');
-require_once('../models/post.php');
-
 
 if (isset($_GET['userposts'])) {
 	$user_req = $_GET['userposts'];
@@ -26,4 +24,7 @@ if (isset($_GET['userposts'])) {
 		$user_posts = $post->getuserposts($user_id);
 		echo json_encode($user_posts);
 	}	
+}
+
+if (isset($_GET['userposts'])) {
 }

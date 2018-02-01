@@ -1,10 +1,11 @@
 
 <?php
-	
-	require("../php/post.php");
+	require_once("../php/classes.php");
 
+	require_once("../php/home.php");
 	require_once("../php/session.php");
-	require_once("../models/user.php");
+
+
 	$auth_user = new USER();
 	
 	$user_id = $_SESSION['user_session'];
@@ -22,9 +23,10 @@
 
 <head>
 
-	<title>
-		
-	</title>
+	<title>Homepage</title>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/home.js"></script>
 
 </head>
 
@@ -32,14 +34,16 @@
 
 	<p>Hello <?php print($userRow['user_name']); ?> </p>
 	<p><?php print($userRow['user_email']); ?> </p>
+	<a href=<?php print("user.php" . '?user=' . $userRow['user_name']);?>>Go to your user profile</a>
 
-	<form method="post">
+	<?php require("writepost.php") ?>
 
-		<label for="post">Write a post</label>
-		<textarea name="content" id="content" cols="50" rows="5"></textarea>
-		<input type="submit" name="btn-post" value="Submit">
+	<div>
+		<p>10 Newest Global Posts</p>
 
-	</form>
+		<table id = "newestposts"></table>
+
+	</div>
 
 	<a href="../php/logout.php">Sign Out</a>
 

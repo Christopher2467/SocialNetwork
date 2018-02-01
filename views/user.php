@@ -18,6 +18,8 @@ require('../php/user.php');
 
 <body>
 
+	<a href="home.php">Back to mainpage</a>
+
 	<p id = "username"></p>
 
 	<table id = "posts">
