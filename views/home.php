@@ -1,5 +1,6 @@
 
 <?php
+
 	require_once("../php/classes.php");
 
 	require_once("../php/home.php");
@@ -27,10 +28,13 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="../js/home.js"></script>
+	<script type="text/javascript" src="../js/navbar.js"></script>
 
 </head>
 
 <body>
+
+	<?php require("navbar.php") ?>
 
 	<p>Hello <?php print($userRow['user_name']); ?> </p>
 	<p><?php print($userRow['user_email']); ?> </p>
@@ -48,4 +52,5 @@
 	<a href="../php/logout.php">Sign Out</a>
 
 </body>
+
 </html>

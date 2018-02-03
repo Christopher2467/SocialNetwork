@@ -1,6 +1,23 @@
 <?php
 
 require_once('../models/user.php');
+require_once('../models/post.php');
+require_once("../php/session.php");
+
+//referenced in navbar.js when btn profile is clicked
+if (isset($_GET['sendtoprofile'])){
+	$user = new USER();
+
+	$sql = $user->runQuery("SELECT user_name FROM users WHERE user_id=:userid");
+	$sql->execute(array(":userid"=>$_SESSION['user_session']));
+		
+	$user_name_req = $sql->fetch(PDO::FETCH_ASSOC);
+
+	$user->redirect('../views/user.php?user=' . $user_name_req['user_name']);
+
+	echo "done";
+}
+
 
 if (isset($_GET['userposts'])) {
 	$user_req = $_GET['userposts'];
@@ -26,5 +43,3 @@ if (isset($_GET['userposts'])) {
 	}	
 }
 
-if (isset($_GET['userposts'])) {
-}

@@ -1,6 +1,5 @@
 
 window.onload = (function () {
-	
 	getNewestPosts(function(posts){
 		for (i = 0; i < JSON.parse(posts).length; i++){
 			populateTable(JSON.parse(posts)[i]['poster_id'],JSON.parse(posts)[i]['post_content'], JSON.parse(posts)[i]['post_date'])

@@ -6,7 +6,6 @@
 <head>
 
 	<title>Index Page</title>
-	<script type="text/javascript" src="js/index.js"></script>
 
 </head>
 
