@@ -1,9 +1,9 @@
 
 <div id = "navbar">
 	
-	<button id = "btnHome">Home</button>
-	<button id = "btnProfile">Profile</button>
-	<button id = "btnLogout">Logout</button>
+	<button class = "navbtn" id = "btnHome">Home</button>
+	<button class = "navbtn" id = "btnProfile">Profile</button>
+	<button class = "navbtn" id = "btnLogout">Logout</button>
 
 </div>
 

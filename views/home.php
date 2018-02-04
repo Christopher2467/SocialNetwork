@@ -30,26 +30,49 @@
 	<script type="text/javascript" src="../js/home.js"></script>
 	<script type="text/javascript" src="../js/navbar.js"></script>
 
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+
 </head>
 
 <body>
 
 	<?php require("navbar.php") ?>
 
-	<p>Hello <?php print($userRow['user_name']); ?> </p>
-	<p><?php print($userRow['user_email']); ?> </p>
-	<a href=<?php print("user.php" . '?user=' . $userRow['user_name']);?>>Go to your user profile</a>
+	<div id = "mainpage">
+		
+		<div id = "userbox">
 
-	<?php require("writepost.php") ?>
+			<div id = "userinfo">
+				<p>Hello <?php print($userRow['user_name']); ?> </p>
+				<p>Your email is <?php print($userRow['user_email']); ?> </p>
+				<a href=<?php print("user.php" . '?user=' . $userRow['user_name']);?>>Go to your user profile</a>
+			</div>
 
-	<div>
-		<p>10 Newest Global Posts</p>
+		</div>
+	
+		<div id = "mainpostbox">
+		
+			<div id = "writepost">
+				
+				<?php require("writepost.php") ?>
 
-		<table id = "newestposts"></table>
+
+			</div>
+
+
+			<div id = "globalposts">
+
+				<p>10 Newest Global Posts</p>
+
+				<table id = "newestposts"></table>
+
+			</div>
+
+		</div>
 
 	</div>
-
-	<a href="../php/logout.php">Sign Out</a>
+	
+	
 
 </body>
 

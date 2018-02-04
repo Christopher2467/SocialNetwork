@@ -1,0 +1,39 @@
+#navbar{
+	background-color: #3E6ABB;
+    padding: 15px 32px;
+    outline: solid black 1px;
+}
+
+.navbtn{
+	outline: solid black 1px;
+	background-color: #66A0CC; 
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+}
+
+#mainpage{
+	padding-top:50px;
+	display: flex;
+}
+
+#mainpostbox{
+	width: 100%;
+	text-align: center;
+}
+
+#userinfo{
+	outline: solid black 1px;
+}
+
+#globalposts{
+	outline: solid black 1px;
+	display: inline-block;
+}
+
+body{
+	background-color: #8CA8D9; 
+}
