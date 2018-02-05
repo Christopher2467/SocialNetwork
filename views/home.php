@@ -60,11 +60,19 @@
 			</div>
 
 
-			<div id = "globalposts">
+			<div class = "posts" id = "globalposts">
 
 				<p>10 Newest Global Posts</p>
 
 				<table id = "newestposts"></table>
+
+			</div>
+
+			<div class = "posts" id = "friendsposts">
+
+				<p>Your friends recent posts</p>
+
+				<table id = "newestfriendsposts"></table>
 
 			</div>
 

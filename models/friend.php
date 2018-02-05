@@ -65,6 +65,24 @@ class FRIEND{
 			echo $e->getMessage();
 		}				
 	}
+
+	public function getfriends($userid){
+
+		try{
+
+			$sql = $this->conn->prepare("SELECT friend_id FROM friends WHERE user_id=:uid");
+			$sql->execute(array(":uid"=>$userid));
+			
+			$user_friends_req = $sql->fetchALL(PDO::FETCH_ASSOC);
+			
+			return $user_friends_req;
+
+		}
+		catch(PDOException $e){
+			echo $e->getMessage();
+		}	
+
+	}
 	
 }
 

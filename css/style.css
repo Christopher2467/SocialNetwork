@@ -29,7 +29,7 @@
 	outline: solid black 1px;
 }
 
-#globalposts{
+.posts{
 	outline: solid black 1px;
 	display: inline-block;
 }

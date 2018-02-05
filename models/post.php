@@ -63,6 +63,22 @@ class POST{
 		}				
 	}
 
+	public function get5userposts($posterid)	{
+		try{
+
+			$sql = $this->conn->prepare("SELECT * FROM posts WHERE poster_id=:posterid ORDER BY post_date DESC LIMIT 5");
+			$sql->execute(array(":posterid"=>$posterid));
+			
+			$user_posts_req = $sql->fetchALL(PDO::FETCH_ASSOC);
+			
+			return $user_posts_req;
+
+		}
+		catch(PDOException $e){
+			echo $e->getMessage();
+		}				
+	}
+
 	public function get10newestposts($limit){
 		try{
 			$sql = $this->conn->prepare("SELECT * FROM posts ORDER BY post_date DESC LIMIT 10");
