@@ -1,7 +1,11 @@
 
 window.onload = (function () {
-	
+
 	editUserValues();
+
+
+	document.getElementById('btn-follow').onclick = followUser;
+
 
 	getUserPosts(function(posts){
 		
@@ -17,9 +21,84 @@ window.onload = (function () {
 
 });
 
-//get user posts from username in url
-function getUserPosts(callback){
+function getUserId(callback){
 
+	vuser = getUsernameFromUrl()
+	
+	$.ajax({
+
+		type: 'GET',
+
+  		url: '../php/user.php',
+
+  		data: {getuserid: vuser},
+
+	  	success: callback,
+
+	 	error: function(data) {
+	    	alert("error fetching id")
+	    	
+	  	}
+
+	});
+
+
+}
+
+function issessionFollowing(callback){
+
+	getUserId(function(id){
+		$.ajax({
+
+			type: 'GET',
+		  	url: '../php/friend.php',
+
+		  	data: {checkiffriend: id},
+
+			success: callback,
+
+			error: function(data) {
+			  	console.log("Error checking if session is following")
+			}
+
+		});
+	});
+}
+
+
+function followUser(){
+
+	getUserId(function(id){
+		$.ajax({
+
+			type: 'POST',
+
+	  		url: '../php/friend.php',
+
+	  		data: {addfriend: id},
+
+		  	success: function(data) {
+
+		  		if(data){
+		  			console.log("Followed User")
+		  			window.location.reload()
+		  		}
+		  		if(data == false){
+		  			alert("Already following user")
+		  		}
+		  	},
+
+		 	error: function(data) {
+		    	console.log("Error Following User")
+		  	}
+
+		});
+	});
+	
+
+}
+
+function getUsernameFromUrl(){
 	//get the url args
 	var vars = {};
 	window.location.href.replace( location.hash, '' ).replace( 
@@ -30,6 +109,16 @@ function getUserPosts(callback){
 	);
 
 	var vuser = vars['user']
+
+	return vuser
+}
+
+//get user posts from username in url
+function getUserPosts(callback){
+
+	
+	vuser = getUsernameFromUrl()
+	
 
 	$.ajax({
 
@@ -51,18 +140,52 @@ function getUserPosts(callback){
 
 }
 
+function getSession(callback){
+
+	args = ""
+
+	$.ajax({
+
+		type: 'GET',
+
+  		url: '../php/user.php',
+
+  		data: {getsession: args},
+
+	  	success: callback,
+
+	 	error: function() {
+	    	console.log("error fetching session")
+	    	
+	  	}
+
+	});
+	
+}
+
 function editUserValues(){
 
-	//get the url args
-	var vars = {};
-	window.location.href.replace( location.hash, '' ).replace( 
-		/[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
-		function( m, key, value ) { // callback
-			vars[key] = value !== undefined ? value : '';
-		}
-	);
-	//username from url
-	var vuser = vars['user'];
+	var vuser = getUsernameFromUrl()
+
+	getSession(function(s_id){
+		getUserId(function(u_id){
+			issessionFollowing(function(response){
+
+				if(response){
+					document.getElementById('btn-follow').disabled = true
+					document.getElementById('btn-follow').innerHTML = "Already Following"
+				}
+
+				if(s_id == u_id){
+					document.getElementById('btn-follow').disabled = true
+					document.getElementById('btn-follow').innerHTML = "This is your profile"
+				}
+
+			});
+		});
+	});
+
+
 
 	var usernameTag = document.getElementById("username");
 	username.innerHTML = "The poster is: " + vuser;
