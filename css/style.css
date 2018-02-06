@@ -1,42 +1,91 @@
 #navbar{
 	background-color: #3E6ABB;
     padding: 15px 32px;
-    outline: solid black 1px;
+    border: none;
+
 }
 
 .navbtn{
-	outline: solid black 1px;
-	background-color: #66A0CC; 
+	background-color: #66A0CC;
     border: none;
     color: white;
+    padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 30px;
+    font-size: 16px;
 }
 
 #mainpage{
-	padding-top:50px;
+	padding-top: 5%;
+	padding-left: 5%;
+	padding-right: 15%;
 	display: flex;
 }
 
 #mainpostbox{
-	width: 100%;
-	text-align: center;
+	margin: 0 auto;
+	width: 50%;
+}
+
+#userbox{
+	width: 25%;
 }
 
 #userinfo{
-	outline: solid black 1px;
+	background-color: #66A0CC;
+    text-align: center;
+    color: white;
 }
 
-.posts{
-	outline: solid black 1px;
+#writepost{
+	display: flex;
+	padding-bottom: 5%;
+	overflow: auto;
+	width:100%;
 	display: inline-block;
 }
 
+#content{
+	border: none;
+	padding: 2% 0% 2% 0%;
+	float: left;
+	width: 75%;
+}
 
+#postbtn{
+	padding: 5% 0% 5% 0%;
+ 	width: 25%;
+ 	float: right;
+	background-color: #66A0CC;
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.posts{
+	background-color: #66A0CC;
+}
+
+#newestfriendsposts{
+	width: 100%;
+}
+
+.post{
+	color: white;
+	width: 100%;
+	outline: solid #C4CACE 1px;
+}
+
+.userlink{
+
+
+}
 
 
 body{
-	background-color: #8CA8D9; 
+	background-color: #C4CACE; 
 }

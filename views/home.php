@@ -60,8 +60,6 @@
 
 			<div class = "posts" id = "friendsposts">
 
-				<p>Your friends recent posts</p>
-
 				<table id = "newestfriendsposts"></table>
 
 			</div>
