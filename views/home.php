@@ -17,7 +17,6 @@
 	$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
 	
 ?>
-
 <!DOCTYPE html>
 
 <html>
@@ -56,15 +55,6 @@
 				
 				<?php require("writepost.php") ?>
 
-
-			</div>
-
-
-			<div class = "posts" id = "globalposts">
-
-				<p>10 Newest Global Posts</p>
-
-				<table id = "newestposts"></table>
 
 			</div>
 

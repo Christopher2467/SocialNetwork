@@ -5,6 +5,12 @@ function gohome_click(){
 
 }
 
+function goglobal_click(){
+
+	window.location.href = "global.php";
+
+}
+
 function goprofile_click(){
 
 	window.location.href = "../php/user.php?sendtoprofile";

@@ -3,6 +3,7 @@
 require_once('classes.php');
 require_once('session.php');
 
+
 //referenced in navbar.js when btn profile is clicked
 if (isset($_GET['sendtoprofile'])){
 	$user = new USER();
@@ -17,6 +18,22 @@ if (isset($_GET['sendtoprofile'])){
 	echo "done";
 }
 
+
+if (isset($_GET['sendtoposterprofile'])){
+
+	$user_id = $_GET['sendtoposterprofile'];
+
+	$user = new USER();
+
+	$sql = $user->runQuery("SELECT user_name FROM users WHERE user_id=:userid");
+	$sql->execute(array(":userid"=>$user_id));
+		
+	$user_name_req = $sql->fetch(PDO::FETCH_ASSOC);
+
+	$user->redirect('../views/user.php?user=' . $user_name_req['user_name']);
+
+	echo "done";
+}
 
 if (isset($_GET['getsession'])){
 
@@ -48,7 +65,29 @@ if (isset($_GET['getuserid'])){
 	}
 }
 
+//getting username from userid
+if (isset($_GET['getusername'])){
 
+	$user_req = $_GET['getusername'];
+	
+	$user = new USER();
+
+	$sql = $user->runQuery("SELECT user_name FROM users WHERE user_id=:uid");
+	$sql->execute(array(":uid"=>$user_req));
+		
+	$user_name_req = $sql->fetch(PDO::FETCH_ASSOC);
+
+		
+	if($user_name_req == false){
+
+		echo false;
+
+	}else{
+		$user_name = $user_name_req['user_name'];
+
+		echo $user_name;
+	}
+}
 
 if (isset($_GET['userposts'])) {
 	$user_req = $_GET['userposts'];
