@@ -11,23 +11,25 @@ require("../php/login.php");
 <head>
 
 	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 
 </head>
 
 <body>
 
-	<form method="post">
+	<form method="post" class = "form">
 
-		<label for="username">Enter your username</label>
-		<input type="text" name="username" id="username">
+		<label for="username" class = "formelement">Enter your username or email</label>
+		<input type="text" name="username" id="username" class = "formelement">
 
-		<label for="email">Enter your email</label>
-		<input type="text" name="email" id="email">
+		<label for="email" class = "formelement">Enter your email</label>
+		<input type="text" name="email" id="email" class = "formelement">
 
-		<label for="password">Enter your password</label>
-		<input type="password" name="password" id="password">
+		<label for="password" class = "formelement">Enter your password</label>
+		<input type="password" name="password" id="password" class = "formelement">
 
-		<input type="submit" name="btn-login" value="Submit">
+		<input type="submit" name="btn-login" value="Submit" class = "formelement">
+	</form>
 
 </body>
 

@@ -5,20 +5,21 @@
 <head>
 
 	<title>Signup</title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
 
 </head>
 
 <body>
-	<form action="../php/signup.php" method="post">
+	<form action="../php/signup.php" method="post" class = "form">
 
-		<label for="username">Username</label>
-		<input type="text" name="username" id="username">
+		<label for="username" class = "formelement">Username</label>
+		<input type="text" name="username" id="username" class = "formelement">
 
-		<label for="email">Email</label>
-		<input type="text" name="email" id="email">
+		<label for="email" class = "formelement">Email</label>
+		<input type="text" name="email" id="email" class = "formelement">
 
-		<label for="password">Password</label>
-		<input type="password" name="password" id="password">
+		<label for="password" class = "formelement">Password</label>
+		<input type="password" name="password" id="password" class = "formelement">
 
 		<input type="submit" value="Submit">
 

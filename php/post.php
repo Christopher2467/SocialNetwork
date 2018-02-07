@@ -5,7 +5,6 @@ require_once("../php/session.php");
 
 
 if(isset($_POST['btn-post'])){
-
 	$post = new POST();
 	
 	$post_content = htmlspecialchars(trim(strip_tags($_POST['content'])));

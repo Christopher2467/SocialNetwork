@@ -5,8 +5,8 @@
 
 	require_once("../php/home.php");
 	require_once("../php/session.php");
-	require_once("../php/post.php");
 
+	//make sure you dont require post.php here or else you will get double posts
 ?>
 <!DOCTYPE html>
 

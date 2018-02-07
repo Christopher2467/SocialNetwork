@@ -38,6 +38,7 @@ require('../php/friend.php');
 				<p id = "numfollowing"></p>
 
 			</div>
+			
 			<button id = "btn-follow">Follow</button>
 
 
