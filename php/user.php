@@ -41,6 +41,17 @@ if (isset($_GET['getsession'])){
 
 }
 
+if (isset($_GET['getsessionprofilepicture'])){
+	$user = new USER();
+
+	$sql = $user->runQuery("SELECT user_currentpicture FROM users WHERE user_id=:userid");
+	$sql->execute(array(":userid"=>$_SESSION['user_session']));
+		
+	$user_picture_req = $sql->fetch(PDO::FETCH_ASSOC);
+
+	echo $user_picture_req['user_currentpicture'];
+}	
+
 //getting userid from username
 if (isset($_GET['getuserid'])){
 
@@ -74,6 +85,28 @@ if (isset($_GET['getusername'])){
 
 	$sql = $user->runQuery("SELECT user_name FROM users WHERE user_id=:uid");
 	$sql->execute(array(":uid"=>$user_req));
+		
+	$user_name_req = $sql->fetch(PDO::FETCH_ASSOC);
+
+		
+	if($user_name_req == false){
+
+		echo false;
+
+	}else{
+		$user_name = $user_name_req['user_name'];
+
+		echo $user_name;
+	}
+}
+
+//getting username from usersession
+if (isset($_GET['getusernamefromsession'])){
+
+	$user = new USER();
+
+	$sql = $user->runQuery("SELECT user_name FROM users WHERE user_id=:uid");
+	$sql->execute(array(":uid"=>$_SESSION['user_session']));
 		
 	$user_name_req = $sql->fetch(PDO::FETCH_ASSOC);
 

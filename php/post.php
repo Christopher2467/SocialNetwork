@@ -1,10 +1,10 @@
 <?php 
 
+require_once("../php/classes.php");
 require_once("../php/session.php");
 
 
 if(isset($_POST['btn-post'])){
-	//var_dump($_POST);
 
 	$post = new POST();
 	
@@ -14,5 +14,13 @@ if(isset($_POST['btn-post'])){
 
 	$post->redirect('../views/home.php');
 }
+
+if(isset($_GET['sessionnumuserposts'])){
+
+	$post = new POST();
+	$posts = $post->getuserposts($_SESSION['user_session']);
+	echo (sizeof($posts));
+}
+
 
 ?> 

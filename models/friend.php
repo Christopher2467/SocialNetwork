@@ -83,6 +83,24 @@ class FRIEND{
 		}	
 
 	}
+
+	public function getfollowers($friendid){
+
+		try{
+
+			$sql = $this->conn->prepare("SELECT user_id FROM friends WHERE friend_id=:fid");
+			$sql->execute(array(":fid"=>$friendid));
+			
+			$user_followers_req = $sql->fetchALL(PDO::FETCH_ASSOC);
+			
+			return $user_followers_req;
+
+		}
+		catch(PDOException $e){
+			echo $e->getMessage();
+		}	
+
+	}
 	
 }
 

@@ -5,16 +5,7 @@
 
 	require_once("../php/home.php");
 	require_once("../php/session.php");
-
-
-	$auth_user = new USER();
-	
-	$user_id = $_SESSION['user_session'];
-	
-	$stmt = $auth_user->runQuery("SELECT * FROM users WHERE user_id=:user_id");
-	$stmt->execute(array(":user_id"=>$user_id));
-	
-	$userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+	require_once("../php/post.php");
 	
 ?>
 <!DOCTYPE html>
@@ -42,9 +33,13 @@
 		<div id = "userbox">
 
 			<div id = "userinfo">
-				<p>Hello <?php print($userRow['user_name']); ?> </p>
-				<p>Your email is <?php print($userRow['user_email']); ?> </p>
-				<a href=<?php print("user.php" . '?user=' . $userRow['user_name']);?>>Go to your user profile</a>
+
+				<img id = "profilepicture">
+				<p id = "username"></p>
+				<p id = "numposts"></p>
+				<p id = "numfollowers"></p>
+				<p id = "numfollowing"></p>
+
 			</div>
 
 		</div>
