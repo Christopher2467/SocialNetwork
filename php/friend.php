@@ -49,4 +49,23 @@ if(isset($_GET['sessionamountoffollowers'])){
 	echo sizeof($friends);
 }
 
+if(isset($_GET['amountoffollowing'])){
+	$user_id = $_GET['amountoffollowing'];
+
+	$friend = new FRIEND();
+	$friends = $friend->getfriends($user_id);
+
+	echo sizeof($friends);
+}
+
+if(isset($_GET['amountoffollowers'])){
+	$user_id = $_GET['amountoffollowers'];
+
+	$friend = new FRIEND();
+	$friends = $friend->getfollowers($user_id);
+	
+	echo sizeof($friends);
+}
+
+
 ?>

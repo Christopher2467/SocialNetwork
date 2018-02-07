@@ -202,19 +202,19 @@ function drawUser(){
 	});
 
 	getSessionUserName(function(username){
-		elem_username.innerHTML = username
+		elem_username.innerHTML = "Hello " + username
 	});
 
 	getNumUserPosts(function(numposts){
-		elem_numposts.innerHTML = numposts
+		elem_numposts.innerHTML = numposts + " Posts"
 	});
 
 	getSessionFollowing(function(amount){
-		elem_numfollowing.innerHTML = amount
+		elem_numfollowing.innerHTML = amount + " Following"
 	});
 
 	getSessionFollowers(function(amount){
-		elem_numfollowers.innerHTML = amount
+		elem_numfollowers.innerHTML = amount + " Followers"
 	});
 
 }

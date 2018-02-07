@@ -22,5 +22,12 @@ if(isset($_GET['sessionnumuserposts'])){
 	echo (sizeof($posts));
 }
 
+if(isset($_GET['numuserposts'])){
+	$user_id = $_GET['numuserposts'];
+	
+	$post = new POST();
+	$posts = $post->getuserposts($user_id);
+	echo (sizeof($posts));
+}
 
 ?> 

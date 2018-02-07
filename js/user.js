@@ -132,7 +132,6 @@ function getUserPosts(callback){
 
 	 	error: function(data) {
 	    	alert("error fetching id")
-	    	
 	  	}
 
 	});
@@ -163,14 +162,99 @@ function getSession(callback){
 	
 }
 
+function getProfilePicture(id, callback){
+	args = id
+
+	$.ajax({
+
+		type: 'GET',
+
+  		url: '../php/user.php',
+
+  		data: {getprofilepicture: args},
+
+	  	success: callback,
+
+	 	error: function() {
+	    	console.log("error fetching profile picture")
+	    	
+	  	}
+
+	});
+}
+
+function getNumUserPosts(id, callback){
+	args = id
+
+	$.ajax({
+
+		type: 'GET',
+
+  		url: '../php/post.php',
+
+  		data: {numuserposts: args},
+
+	  	success: callback,
+
+	 	error: function() {
+	    	console.log("error fetching profile picture")
+	    	
+	  	}
+
+	});
+}
+
+function getAmountFollowing(id, callback){
+	args = id
+
+	$.ajax({
+
+		type: 'GET',
+
+  		url: '../php/friend.php',
+
+  		data: {amountoffollowing: args},
+
+	  	success: callback,
+
+	 	error: function() {
+	    	console.log("error fetching profile picture")
+	    	
+	  	}
+
+	});
+}
+
+function getAmountFollowers(id, callback){
+	args = id
+
+	$.ajax({
+
+		type: 'GET',
+
+  		url: '../php/friend.php',
+
+  		data: {amountoffollowers: args},
+
+	  	success: callback,
+
+	 	error: function() {
+	    	console.log("error fetching profile picture")
+	    	
+	  	}
+
+	});
+}
+
 function editUserValues(){
 
 	var vuser = getUsernameFromUrl()
 
+
 	getSession(function(s_id){
 		getUserId(function(u_id){
 			issessionFollowing(function(response){
-
+				drawUser(u_id)
 				if(response){
 					document.getElementById('btn-follow').disabled = true
 					document.getElementById('btn-follow').innerHTML = "Already Following"
@@ -185,10 +269,33 @@ function editUserValues(){
 		});
 	});
 
-
-
 	var usernameTag = document.getElementById("username");
-	username.innerHTML = "The poster is: " + vuser;
+	username.innerHTML = "The User is: " + vuser;
+
+	
+}
+
+function drawUser(userid){
+	var elem_profilepicture = document.getElementById("profilepicture");
+	var elem_numposts = document.getElementById("numposts");
+	var elem_numfollowing = document.getElementById("numfollowing");
+	var elem_numfollowers = document.getElementById("numfollowers");
+
+	getProfilePicture(userid, function(url){
+		elem_profilepicture.src = "../images/" + url + ".jpg"
+	});
+
+	getNumUserPosts(userid, function(numposts){
+		elem_numposts.innerHTML = numposts + " Posts"
+	});
+
+	getAmountFollowing(userid, function(amount){
+		elem_numfollowing.innerHTML = amount + " Following"
+	});
+
+	getAmountFollowers(userid, function(amount){
+		elem_numfollowers.innerHTML = amount + " Followers"
+	});
 }
 
 function populateTable(content, date) {

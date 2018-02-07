@@ -21,17 +21,31 @@
 	display: flex;
 }
 
+#userpage{
+	padding-top: 5%;
+	display: flex;
+}
+
 #mainpostbox{
 	margin: 0 auto;
 	width: 50%;
 }
 
 #userbox{
+	height: 25%;
 	width: 25%;
+	display: flex;
+	margin: 0 auto;
+	background-color: #66A0CC;
 }
 
+#profilepicture{
+	height: 50%;
+	width: 50%;
+}
 #userinfo{
-	background-color: #66A0CC;
+	padding-top: 5%;
+  	margin: 0 auto;
     text-align: center;
     color: white;
 }
@@ -64,6 +78,17 @@
     font-size: 16px;
 }
 
+#btn-follow{
+	align-self: flex-end;
+
+	border: none;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+	background-color: #3E6ABB;
+
+}
+
 .postsdiv{
 	background-color: #66A0CC;
 }
@@ -77,12 +102,6 @@
 	width: 100%;
 	outline: solid #C4CACE 1px;
 }
-
-.userlink{
-
-
-}
-
 
 body{
 	background-color: #C4CACE; 

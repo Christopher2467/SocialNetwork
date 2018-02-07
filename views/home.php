@@ -6,7 +6,7 @@
 	require_once("../php/home.php");
 	require_once("../php/session.php");
 	require_once("../php/post.php");
-	
+
 ?>
 <!DOCTYPE html>
 
@@ -32,16 +32,17 @@
 		
 		<div id = "userbox">
 
-			<div id = "userinfo">
+			<img id = "profilepicture">
 
-				<img id = "profilepicture">
+
+			<div id = "userinfo">
 				<p id = "username"></p>
 				<p id = "numposts"></p>
 				<p id = "numfollowers"></p>
 				<p id = "numfollowing"></p>
 
 			</div>
-
+			
 		</div>
 	
 		<div id = "mainpostbox">

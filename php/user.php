@@ -52,6 +52,19 @@ if (isset($_GET['getsessionprofilepicture'])){
 	echo $user_picture_req['user_currentpicture'];
 }	
 
+if (isset($_GET['getprofilepicture'])){
+	$user_id = $_GET['getprofilepicture'];
+
+	$user = new USER();
+
+	$sql = $user->runQuery("SELECT user_currentpicture FROM users WHERE user_id=:userid");
+	$sql->execute(array(":userid"=>$user_id));
+		
+	$user_picture_req = $sql->fetch(PDO::FETCH_ASSOC);
+
+	echo $user_picture_req['user_currentpicture'];
+}	
+
 //getting userid from username
 if (isset($_GET['getuserid'])){
 

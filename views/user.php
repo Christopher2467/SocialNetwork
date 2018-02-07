@@ -23,15 +23,39 @@ require('../php/friend.php');
 <body>
 
 	<?php require("navbar.php"); ?>
+
+	<div id = "userpage">
+
+
+		<div id = "userbox">
+
+			<img id = "profilepicture">
+
+			<div id = "userinfo">
+				<p id = "username"></p>
+				<p id = "numposts"></p>
+				<p id = "numfollowers"></p>
+				<p id = "numfollowing"></p>
+
+			</div>
+			<button id = "btn-follow">Follow</button>
+
+
+		</div>
+		
+
+		<div id = "mainpostbox">
+			
+			<div class = "postsdiv">
+
+				<table id = "posts" class = "posts"></table>
+
+			</div>
+
+		</div>
+
+	</div>
 	
-
-	<p id = "username"></p>
-
-	<button id = "btn-follow">Follow</button>
-
-	<table id = "posts">
-  	
-	</table>
 
 </body>
 
