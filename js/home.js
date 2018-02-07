@@ -1,7 +1,14 @@
 
 window.onload = (function () {
-
 	getNewestFriendsPosts(function(fposts){
+
+		if (JSON.parse(fposts).length == 0){
+			getSessionId(function(id){
+				populateFriendsTable(id, "No posts found, why not write your own", new Date().toLocaleString())
+			});
+		}
+
+
 		for(n = 0; n < JSON.parse(fposts).length; n++){
 			populateFriendsTable(JSON.parse(fposts)[n]['poster_id'],JSON.parse(fposts)[n]['post_content'], JSON.parse(fposts)[n]['post_date'])
 		}
@@ -10,7 +17,27 @@ window.onload = (function () {
 
 });
 
+function getSessionId(callback){
 
+	var req = ""
+
+	$.ajax({
+
+		type: 'GET',
+
+  		url: '../php/user.php',
+
+  		data: {getsession: req},
+
+	  	success: callback,
+
+	 	error: function(data) {
+	    	alert("error fetching Newest Posts")
+	    	
+	  	}
+
+	});
+}
 
 function getNewestFriendsPosts(callback){
 

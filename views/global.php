@@ -16,15 +16,28 @@
 <body>
 	<?php require("navbar.php") ?>
 
+	<div id = "mainpage">
 
-	<div class = "posts" id = "globalposts">
+		<div id = "mainpostbox">
+			
+			<div id = "writepost">
+					
+				<?php require("writepost.php") ?>
 
-		<p>10 Newest Global Posts</p>
 
-		<table id = "newestposts"></table>
+			</div>
+
+			<div class = "postsdiv">
+
+				<table id = "newestposts" class = "posts"></table>
+
+			</div>
+
+		</div>
 
 	</div>
-	
+
+
 </body>
 
 </html>

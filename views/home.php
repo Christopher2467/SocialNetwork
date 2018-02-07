@@ -58,9 +58,9 @@
 
 			</div>
 
-			<div class = "posts" id = "friendsposts">
+			<div class = "postsdiv" id = "friendsposts">
 
-				<table id = "newestfriendsposts"></table>
+				<table id ="newestfriendsposts" class = "posts"></table>
 
 			</div>
 

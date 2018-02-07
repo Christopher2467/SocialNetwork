@@ -10,7 +10,6 @@ if (isset($_GET['newestfriendsposts'])) {
 	
 	$friend = new FRIEND();
 	$friends = $friend->getfriends($_SESSION['user_session']);
-
 	$post = new POST();
 
 	$unsorted_posts = array();

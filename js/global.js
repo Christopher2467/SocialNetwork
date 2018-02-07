@@ -40,8 +40,11 @@ function populateTable(poster_id, content, date){
 
     var table = document.getElementById("newestposts");
     var row = table.insertRow(table.rows.length);
+	row.className = "post";
 
     var cell1 = row.insertCell(0);
+    cell1.className = "userlink";
+
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
 
