@@ -16,6 +16,18 @@
     font-size: 16px;
 }
 
+.navbtn:hover{
+	opacity: 0.7;
+}
+
+#postbtn:hover{
+	opacity: 0.7;
+}
+
+#btn-follow:hover{
+	opacity: 0.7;
+}
+
 #mainpage{
 	padding-top: 5%;
 	display: flex;
