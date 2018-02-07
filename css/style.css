@@ -146,6 +146,21 @@ input[type=submit]:hover {
     background-color: #3E6ABB;
 }
 
+#prelogin{
+	margin: auto;
+	padding-top: 5%;
+	display: flex;
+	width: 75%;
+}
+
+#leftform{
+	margin-right: 5%;
+}
+
+#rightform{
+	margin-left: 5%;
+}
+
 body{
 	background-color: #C4CACE; 
 }

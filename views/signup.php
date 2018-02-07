@@ -1,29 +1,15 @@
-<!DOCTYPE html>
 
-<html>
+<form action="../php/signup.php" method="post" class = "form" id = "rightform">
 
-<head>
+	<label for="username" class = "formelement">Username</label>
+	<input type="text" name="username" id="username" class = "formelement">
 
-	<title>Signup</title>
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<label for="email" class = "formelement">Email</label>
+	<input type="text" name="email" id="email" class = "formelement">
 
-</head>
+	<label for="password" class = "formelement">Password</label>
+	<input type="password" name="password" id="password" class = "formelement">
 
-<body>
-	<form action="../php/signup.php" method="post" class = "form">
+	<input type="submit" value="SIGNUP" class = "formelement">
 
-		<label for="username" class = "formelement">Username</label>
-		<input type="text" name="username" id="username" class = "formelement">
-
-		<label for="email" class = "formelement">Email</label>
-		<input type="text" name="email" id="email" class = "formelement">
-
-		<label for="password" class = "formelement">Password</label>
-		<input type="password" name="password" id="password" class = "formelement">
-
-		<input type="submit" value="Submit">
-
-	</form>
-</body>
-
-</html>
+</form>

@@ -12,16 +12,16 @@ if($login->is_loggedin()!=""){
 
 
 if(isset($_POST['btn-login'])){
-	$username = strip_tags($_POST['username']);
-	$email = strip_tags($_POST['email']);
-	$password = strip_tags($_POST['password']);
+	$username = strip_tags($_POST['loginusername']);
+	$email = strip_tags($_POST['loginemail']);
+	$password = strip_tags($_POST['loginpassword']);
 	
 	if($login->doLogin($username, $email, $password)){
 		$login->redirect('../views/home.php');
 	}
 	else{
 		//wrong details
-		$login->redirect('../views/login.php');
+		$login->redirect('../views/prelogin.php');
 	}	
 }
 ?> 
