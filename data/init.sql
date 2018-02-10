@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS users (
 	user_name VARCHAR(30) NOT NULL,
 	user_pass VARCHAR(255) NOT NULL,
 	user_email VARCHAR(50) NOT NULL,
-	user_currentpicture VARCHAR(10) NOT NULL DEFAULT 'default'
+	user_currentpicture VARCHAR(10) NOT NULL DEFAULT 'dog'
 );
 
 CREATE TABLE IF NOT EXISTS posts (
